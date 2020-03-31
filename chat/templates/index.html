@@ -248,11 +248,7 @@
 
                                 <!-- Friends -->
                                 <nav class="mb-n6">
-
-                                    <div class="mb-6">
-                                        <small class="text-uppercase">A</small>
-                                    </div>
-
+                                    {% for i in user.profile.friends.all %}
                                     <!-- Friend -->
                                     <div class="card mb-6">
                                         <div class="card-body">
@@ -265,8 +261,8 @@
                                                 
                                                 
                                                 <div class="media-body align-self-center">
-                                                    <h6 class="mb-0">Anna Bridges</h6>
-                                                    <small class="text-muted">Online</small>
+                                                    <h6 class="mb-0">{{i.first_name}} {{i.last_name}}</h6>
+                                                    <small class="text-muted">{{i.username}}</small>
                                                 </div>
 
                                                 <div class="align-self-center ml-5">
@@ -281,323 +277,21 @@
                                                             <a class="dropdown-item d-flex align-items-center" href="#">
                                                                 New chat <span class="ml-auto fe-edit-2"></span>
                                                             </a>
-                                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                                Delete <span class="ml-auto fe-trash-2"></span>
-                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
+                                            {% for j in fchat %}
                                             <!-- Link -->
-                                            <a href="chat-2.html" class="stretched-link"></a>
-
+                                            {% if i in j.fuser.all %}
+                                                <a href="/chat/{{j.furl}}" class="stretched-link"></a>
+                                            {% endif %}
+                                            {% endfor %}
                                         </div>
                                     </div>
                                     <!-- Friend -->
-
-                                    <div class="mb-6">
-                                        <small class="text-uppercase">B</small>
-                                    </div>
-
-                                    <!-- Friend -->
-                                    <div class="card mb-6">
-                                        <div class="card-body">
-
-                                            <div class="media">
-                                                
-                                                
-                                                <div class="avatar mr-5">
-                                                    <img class="avatar-img" src="assets/images/avatars/6.jpg" alt="Brian Dawson">
-                                                </div>
-                                                
-                                                <div class="media-body align-self-center">
-                                                    <h6 class="mb-0">Brian Dawson</h6>
-                                                    <small class="text-muted">last seen 2 hours ago</small>
-                                                </div>
-
-                                                <div class="align-self-center ml-5">
-                                                    <div class="dropdown z-index-max">
-                                                        <a href="#" class="btn btn-sm btn-ico btn-link text-muted w-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fe-more-vertical"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                                New chat <span class="ml-auto fe-edit-2"></span>
-                                                            </a>
-                                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                                Delete <span class="ml-auto fe-trash-2"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Link -->
-                                            <a href="#" class="stretched-link"></a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Friend -->
-
-                                    <div class="mb-6">
-                                        <small class="text-uppercase">L</small>
-                                    </div>
-
-                                    <!-- Friend -->
-                                    <div class="card mb-6">
-                                        <div class="card-body">
-
-                                            <div class="media">
-                                                
-                                                
-                                                <div class="avatar mr-5">
-                                                    <img class="avatar-img" src="assets/images/avatars/5.jpg" alt="Leslie Sutton">
-                                                </div>
-                                                
-                                                <div class="media-body align-self-center">
-                                                    <h6 class="mb-0">Leslie Sutton</h6>
-                                                    <small class="text-muted">last seen 3 days ago</small>
-                                                </div>
-
-                                                <div class="align-self-center ml-5">
-                                                    <div class="dropdown z-index-max">
-                                                        <a href="#" class="btn btn-sm btn-ico btn-link text-muted w-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fe-more-vertical"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                                New chat <span class="ml-auto fe-edit-2"></span>
-                                                            </a>
-                                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                                Delete <span class="ml-auto fe-trash-2"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Link -->
-                                            <a href="#" class="stretched-link"></a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Friend -->
-
-                                    <div class="mb-6">
-                                        <small class="text-uppercase">M</small>
-                                    </div>
-
-                                    <!-- Friend -->
-                                    <div class="card mb-6">
-                                        <div class="card-body">
-
-                                            <div class="media">
-                                                
-                                                
-                                                <div class="avatar mr-5">
-                                                    <img class="avatar-img" src="assets/images/avatars/4.jpg" alt="Matthew Wiggins">
-                                                </div>
-                                                
-                                                <div class="media-body align-self-center">
-                                                    <h6 class="mb-0">Matthew Wiggins</h6>
-                                                    <small class="text-muted">last seen 3 days ago</small>
-                                                </div>
-
-                                                <div class="align-self-center ml-5">
-                                                    <div class="dropdown z-index-max">
-                                                        <a href="#" class="btn btn-sm btn-ico btn-link text-muted w-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fe-more-vertical"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                                New chat <span class="ml-auto fe-edit-2"></span>
-                                                            </a>
-                                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                                Delete <span class="ml-auto fe-trash-2"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Link -->
-                                            <a href="#" class="stretched-link"></a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Friend -->
-
-                                    <div class="mb-6">
-                                        <small class="text-uppercase">S</small>
-                                    </div>
-
-                                    <!-- Friend -->
-                                    <div class="card mb-6">
-                                        <div class="card-body">
-
-                                            <div class="media">
-                                                
-                                                
-                                                <div class="avatar mr-5">
-                                                    <img class="avatar-img" src="assets/images/avatars/7.jpg" alt="Simon Hensley">
-                                                </div>
-                                                
-                                                <div class="media-body align-self-center">
-                                                    <h6 class="mb-0">Simon Hensley</h6>
-                                                    <small class="text-muted">last seen 3 days ago</small>
-                                                </div>
-
-                                                <div class="align-self-center ml-5">
-                                                    <div class="dropdown z-index-max">
-                                                        <a href="#" class="btn btn-sm btn-ico btn-link text-muted w-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fe-more-vertical"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                                New chat <span class="ml-auto fe-edit-2"></span>
-                                                            </a>
-                                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                                Delete <span class="ml-auto fe-trash-2"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Link -->
-                                            <a href="#" class="stretched-link"></a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Friend -->
-
-                                    <div class="mb-6">
-                                        <small class="text-uppercase">W</small>
-                                    </div>
-
-                                    <!-- Friend -->
-                                    <div class="card mb-6">
-                                        <div class="card-body">
-
-                                            <div class="media">
-                                                
-                                                
-                                                <div class="avatar mr-5">
-                                                    <img class="avatar-img" src="assets/images/avatars/9.jpg" alt="William Wright">
-                                                </div>
-                                                
-                                                <div class="media-body align-self-center">
-                                                    <h6 class="mb-0">William Wright</h6>
-                                                    <small class="text-muted">last seen 3 days ago</small>
-                                                </div>
-
-                                                <div class="align-self-center ml-5">
-                                                    <div class="dropdown z-index-max">
-                                                        <a href="#" class="btn btn-sm btn-ico btn-link text-muted w-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fe-more-vertical"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                                New chat <span class="ml-auto fe-edit-2"></span>
-                                                            </a>
-                                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                                Delete <span class="ml-auto fe-trash-2"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Link -->
-                                            <a href="#" class="stretched-link"></a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Friend --><!-- Friend -->
-                                    <div class="card mb-6">
-                                        <div class="card-body">
-
-                                            <div class="media">
-                                                
-                                                
-                                                <div class="avatar mr-5">
-                                                    <img class="avatar-img" src="assets/images/avatars/3.jpg" alt="William Greer">
-                                                </div>
-                                                
-                                                <div class="media-body align-self-center">
-                                                    <h6 class="mb-0">William Greer</h6>
-                                                    <small class="text-muted">last seen 10 minutes ago</small>
-                                                </div>
-
-                                                <div class="align-self-center ml-5">
-                                                    <div class="dropdown z-index-max">
-                                                        <a href="#" class="btn btn-sm btn-ico btn-link text-muted w-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fe-more-vertical"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                                New chat <span class="ml-auto fe-edit-2"></span>
-                                                            </a>
-                                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                                Delete <span class="ml-auto fe-trash-2"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Link -->
-                                            <a href="#" class="stretched-link"></a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Friend -->
-
-                                    <div class="mb-6">
-                                        <small class="text-uppercase">Z</small>
-                                    </div>
-
-                                    <!-- Friend -->
-                                    <div class="card mb-6">
-                                        <div class="card-body">
-
-                                            <div class="media">
-                                                
-                                                
-                                                <div class="avatar mr-5">
-                                                    <img class="avatar-img" src="assets/images/avatars/7.jpg" alt="Zane Mayes">
-                                                </div>
-                                                
-                                                <div class="media-body align-self-center">
-                                                    <h6 class="mb-0">Zane Mayes</h6>
-                                                    <small class="text-muted">last seen 3 days ago</small>
-                                                </div>
-
-                                                <div class="align-self-center ml-5">
-                                                    <div class="dropdown z-index-max">
-                                                        <a href="#" class="btn btn-sm btn-ico btn-link text-muted w-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fe-more-vertical"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                                New chat <span class="ml-auto fe-edit-2"></span>
-                                                            </a>
-                                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                                Delete <span class="ml-auto fe-trash-2"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Link -->
-                                            <a href="#" class="stretched-link"></a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Friend -->
-
+                                    {% endfor %}
+                                    
                                 </nav>
                                 <!-- Friends -->
 
@@ -620,9 +314,9 @@
                                 <!-- Search -->
                                 <form class="mb-6">
                                     <div class="input-group">
-                                        <input type="text" class="form-control form-control-lg" placeholder="Search for messages or users..." aria-label="Search for messages or users...">
+                                        <input id="chatsearch" type="text" class="form-control form-control-lg" placeholder="Search for messages or users..." aria-label="Search for messages or users...">
                                         <div class="input-group-append">
-                                            <button class="btn btn-lg btn-ico btn-secondary btn-minimal" type="submit">
+                                            <button class="btn btn-lg btn-ico btn-secondary btn-minimal">
                                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                     width="24" height="24"
                                                     viewBox="0 0 172 172"
@@ -634,68 +328,11 @@
                                 <!-- Search -->
 
                                 <!-- Favourites -->
-                                <div class="text-center hide-scrollbar d-flex my-7" data-horizontal-scroll="">
-                                    <a href="#" class="d-block text-reset mr-7 mr-lg-6">
-                                        <div class="avatar avatar-sm avatar-online mb-3">
-                                            <img class="avatar-img" src="assets/images/avatars/2.jpg" alt="Image Description">
-                                        </div>
-                                        <div class="small">William</div>
-                                    </a>
-
-                                    <a href="#" class="d-block text-reset mr-7 mr-lg-6">
-                                        <div class="avatar avatar-sm avatar-online mb-3">
-                                            <img class="avatar-img" src="assets/images/avatars/3.jpg" alt="Image Description">
-                                        </div>
-                                        <div class="small">Simon</div>
-                                    </a>
-
-                                    <a href="#" class="d-block text-reset mr-7 mr-lg-6">
-                                        <div class="avatar avatar-sm avatar-online mb-3">
-                                            <img class="avatar-img" src="assets/images/avatars/4.jpg" alt="Image Description">
-                                        </div>
-                                        <div class="small">Thomas</div>
-                                    </a>
-
-                                    <a href="#" class="d-block text-reset mr-7 mr-lg-6">
-                                        <div class="avatar avatar-sm avatar-online mb-3">
-                                            <img class="avatar-img" src="assets/images/avatars/5.jpg" alt="Image Description">
-                                        </div>
-                                        <div class="small">Zane</div>
-                                    </a>
-
-                                    <a href="#" class="d-block text-reset mr-7 mr-lg-6">
-                                        <div class="avatar avatar-sm mb-3">
-                                            <img class="avatar-img" src="assets/images/avatars/6.jpg" alt="Image Description">
-                                        </div>
-                                        <div class="small">Thomas</div>
-                                    </a>
-
-                                    <a href="#" class="d-block text-reset mr-7 mr-lg-6">
-                                        <div class="avatar avatar-sm mb-3">
-                                            <img class="avatar-img" src="assets/images/avatars/7.jpg" alt="Image Description">
-                                        </div>
-                                        <div class="small">William</div>
-                                    </a>
-
-                                    <a href="#" class="d-block text-reset mr-7 mr-lg-6">
-                                        <div class="avatar avatar-sm mb-3">
-                                            <img class="avatar-img" src="assets/images/avatars/8.jpg" alt="Image Description">
-                                        </div>
-                                        <div class="small">Simon</div>
-                                    </a>
-
-                                    <a href="#" class="d-block text-reset mr-7 mr-lg-6">
-                                        <div class="avatar avatar-sm mb-3">
-                                            <img class="avatar-img" src="assets/images/avatars/9.jpg" alt="Image Description">
-                                        </div>
-                                        <div class="small">Thomas</div>
-                                    </a>
-                                </div>
                                 <!-- Favourites -->
 
                                 <!-- Chats -->
                                 <nav class="nav d-block list-discussions-js mb-n6">
-                                    <div class="group">
+                                    <div id="searchchat" class="group">
                                         {% for grp in group %}
                                         <!-- Chat link -->
                                         <a class="text-reset nav-link p-0 mb-6" href="/chat/{{grp.group_url}}/">
@@ -705,13 +342,13 @@
                                                     <div class="media">
                                                         
                                                         
-                                                        <div class="avatar mr-5">
-                                                            <img class="avatar-img" src="assets/images/avatars/11.jpg" alt="Bootstrap Themes">
+                                                        <div style="text-transform: uppercase;text-align: center;background:#0176ff;padding-top: 25px;color: #fff;font-size: 25px;" class="avatar mr-5">
+                                                            {{ grp.name|make_list|first }}
                                                         </div>
                                                         
                                                         <div class="media-body overflow-hidden">
                                                             <div class="d-flex align-items-center mb-1">
-                                                                <h6 class="text-truncate mb-0 mr-auto">{{grp.name}}</h6>
+                                                                <h6 id="name_chat" class="text-truncate mb-0 mr-auto">{{grp.name}}</h6>
                                                                 <p class="small text-muted text-nowrap ml-4">10:42 am</p>
                                                             </div>
                                                             <div class="text-truncate">Anna Bridges: Hey, Maher! How are you? The weather is great isn't it?</div>
@@ -728,6 +365,43 @@
                                             </div>
                                         </a>
                                         <!-- Chat link -->
+                                        {% endfor %}
+                                        {% for grp in fchat %}
+                                        <!-- Chat link -->
+                                        {% for fc in grp.fuser.all %}
+                                        {% if user != fc %}
+                                        <a class="text-reset nav-link p-0 mb-6" href="/chat/{{grp.furl}}/">
+                                            <div class="card card-active-listener">
+                                                <div class="card-body">
+
+                                                    <div class="media">
+                                                        
+                                                        
+                                                        <div style="text-transform: uppercase;text-align: center;background:#0176ff;padding-top: 25px;color: #fff;font-size: 25px;" class="avatar mr-5">
+                                                            {{ fc.username|make_list|first }}
+                                                        </div>
+                                                        
+                                                        <div class="media-body overflow-hidden">
+                                                            <div class="d-flex align-items-center mb-1">
+                                                                <h6 id="name_chat" class="text-truncate mb-0 mr-auto">{{fc.username}}</h6>
+                                                                <p class="small text-muted text-nowrap ml-4">10:42 am</p>
+                                                            </div>
+                                                            <div class="text-truncate">Anna Bridges: Hey, Maher! How are you? The weather is great isn't it?</div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                
+                                                <div class="badge badge-circle badge-primary badge-border-light badge-top-right">
+                                                    <span>3</span>
+                                                </div>
+                                                
+                                            </div>
+                                        </a>
+                                        <!-- Chat link -->
+                                        {% endif %}
+                                        {% endfor %}
                                         {% endfor %}
                                     </div>
                                 </nav>
@@ -984,6 +658,20 @@
     <script src="{% static 'plugins.bundle.js' %}"></script>
     <script src="{% static 'template.js' %}"></script>
     <!-- Scripts -->
-
+    <script>
+        $("#chatsearch").keyup(function(){
+            var filter = $("#chatsearch").val().toUpperCase();
+            var ul = document.getElementById("searchchat");
+            var li = ul.getElementsByTagName("a");
+            for (i = 0; i < li.length; i++) {
+                txtValue = $(li[i]).find('#name_chat').text();
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        })
+    </script>
 
 </body></html>
