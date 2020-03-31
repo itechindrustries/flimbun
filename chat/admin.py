@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(profile)
 admin.site.register(message)
 admin.site.register(Group)
+admin.site.register(fchat)
