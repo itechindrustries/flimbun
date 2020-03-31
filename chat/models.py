@@ -33,3 +33,10 @@ class Group(models.Model):
 
     def __str__(self):
         return f"{self.group_url}"
+
+class fchat(models.Model):
+    fuser = models.ManyToManyField(User, related_name='fuser', blank=True)
+    furl = models.CharField(max_length=200)
+
+    def __str__(self):
+        return f"{self.furl}"
