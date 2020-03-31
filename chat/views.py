@@ -8,6 +8,7 @@ from django.contrib import messages
 import uuid
 from django.contrib.auth.models import User
 from .models import *
+from .decorators import user_handelaar
 
 # messages.success(request, 'Your Settings was successfully updated!')
 # Create your views here.
@@ -15,6 +16,8 @@ def home(request):
     title = "Flimbun"
     di ={'title':title}
     group = Group.objects.filter(user= request.user)
+    friendchat = fchat.objects.filter(fuser= request.user).all()
+    di['fchat'] = friendchat
     di['group'] = group
     if request.method == 'POST':
         if request.POST['post'] == 'create-group':
@@ -40,11 +43,26 @@ def home(request):
     return render(request, 'index.html',di )
 
 @login_required
+@user_handelaar
 def room(request, room_name):
     title = "Flimbun"
     room_name = str(room_name)
     di ={'title':title,'room_name': room_name,'title':'Chat Room '+room_name,
         'username': request.user.username}
     group = Group.objects.filter(user= request.user)
+    friendchat = fchat.objects.filter(fuser= request.user).all()
+    try:
+        group_member_count = Group.objects.filter(group_url= room_name).first().user.count()
+        di['members'] = group_member_count
+        group_topic = Group.objects.filter(group_url= room_name).first().topic
+        di['topic'] = group_topic
+        group_name = Group.objects.filter(group_url= room_name).first().name
+        di['grp_name'] = group_name
+    except:
+        group_name = fchat.objects.filter(furl= room_name).first().fuser.all()
+        for i in group_name:
+            if i != request.user:
+                di['grp_name'] = i
     di['group'] = group
+    di['fchat'] = friendchat
     return render(request, 'chat.html', di)
