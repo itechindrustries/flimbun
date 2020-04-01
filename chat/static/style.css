@@ -11193,7 +11193,7 @@
     min-width: 30%; }
   
   .avatar.avatar-online::before {
-    background: #42ba96; }
+    background: initial; }
   
   .avatar.avatar-offline::before {
     background: #2d3238; }
