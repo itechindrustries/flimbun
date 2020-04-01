@@ -73,22 +73,22 @@
         //
 
         if ( !isMobile.any() ) {
-            [].forEach.call(document.querySelectorAll('[data-emoji-form]'), function (form) {
-                var button = form.querySelector('[data-emoji-btn]');
+            // [].forEach.call(document.querySelectorAll('[data-emoji-form]'), function (form) {
+            //     var button = form.querySelector('[data-emoji-btn]');
 
-                var picker = new EmojiButton({
-                    position: "top",
-                    zIndex: 1020
-                });
+            //     var picker = new EmojiButton({
+            //         position: "top",
+            //         zIndex: 1020
+            //     });
 
-                picker.on('emoji', function(emoji) {
-                    form.querySelector('[data-emoji-input]').value += emoji;
-                });
+            //     picker.on('emoji', function(emoji) {
+            //         form.querySelector('[data-emoji-input]').value += emoji;
+            //     });
 
-                button.addEventListener('click', function () {
-                    picker.pickerVisible ? picker.hidePicker() : picker.showPicker(button);
-                });
-            });
+            //     button.addEventListener('click', function () {
+            //         picker.pickerVisible ? picker.hidePicker() : picker.showPicker(button);
+            //     });
+            // });
         } else {
             [].forEach.call(document.querySelectorAll('[data-emoji-form]'), function (form) {
                 form.querySelector('[data-emoji-btn]').style.display = 'none';
@@ -211,6 +211,7 @@
         //
 
         SVGInjector(document.querySelectorAll('img[data-inject-svg]'));
+
 
     });
 
