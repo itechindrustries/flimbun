@@ -20,13 +20,13 @@
 
     /* Track */
     ::-webkit-scrollbar-track {
-      background: #f1f1f1;
+      background: inherit;
     }
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
-      background: #888;
-      border-radius: 10px
+      background: inherit;
+      border-radius: 10px;
     }
 
     /* Handle on hover */
@@ -46,7 +46,7 @@
         <div class="navigation navbar navbar-light justify-content-center py-xl-7">
 
             <!-- Brand -->
-            <a href="#" class="d-none d-xl-block mb-6">
+            <a style="cursor: pointer;" id="nav-bar-toggle" class="d-none d-xl-block mb-6">
                 <svg version="1.1" id="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 46 46" enable-background="new 0 0 46 46" xml:space="preserve" class="injected-svg mx-auto fill-primary" style="height: 46px;">
                 <polygon opacity="0.7" points="45,11 36,11 35.5,1 "></polygon>
                 <polygon points="35.5,1 25.4,14.1 39,21 "></polygon>
@@ -190,8 +190,8 @@
 
                                                     <div class="media">
                                                         
-                                                        <div class="avatar avatar-online mr-5">
-                                                            <img class="avatar-img" src="assets/images/avatars/10.jpg" alt="Anna Bridges">
+                                                        <div style="text-transform: uppercase;text-align: center;background:#0176ff;padding-top: 25px;color: #fff;font-size: 25px;" class="avatar avatar-online mr-5">
+                                                            {{ i.first_name|make_list|first }}
                                                         </div>
                                                         
                                                         
@@ -263,9 +263,13 @@
                                 <!-- Search -->
 
                                 <!-- Button -->
+                                <button type="button" class="btn btn-lg btn-block btn-secondary d-flex align-items-center mb-6" data-toggle="modal" data-target="#add-friends">
+                                    Add friends
+                                    <i class="ml-auto">&#43;</i>
+                                </button>
                                 <button type="button" class="btn btn-lg btn-block btn-secondary d-flex align-items-center mb-6" data-toggle="modal" data-target="#invite-friends">
                                     Invite friends
-                                    <i class="fe-users ml-auto"></i>
+                                    <i class="ml-auto">&#43;</i>
                                 </button>
 
                                 <!-- Friends -->
@@ -277,8 +281,8 @@
 
                                             <div class="media">
                                                 
-                                                <div class="avatar avatar-online mr-5">
-                                                    <img class="avatar-img" src="assets/images/avatars/10.jpg" alt="Anna Bridges">
+                                                <div style="text-transform: uppercase;text-align: center;background:#0176ff;padding-top: 25px;color: #fff;font-size: 25px;" class="avatar avatar-online mr-5">
+                                                    {{ i.first_name|make_list|first }}
                                                 </div>
                                                 
                                                 
@@ -313,6 +317,7 @@
                                     </div>
                                     <!-- Friend -->
                                     {% endfor %}
+                                    
                                 </nav>
                                 <!-- Friends -->
 
@@ -363,7 +368,7 @@
                                                     <div class="media">
                                                         
                                                         
-                                                        <div style="text-transform: uppercase;text-align: center;background:#0176ff;padding-top: 25px;color: #fff;font-size: 25px;" class="avatar mr-5">
+                                                        <div style="text-transform: uppercase;text-align: center;background:#0176ff;padding-top: 25px;color: #fff;font-size: 25px;" class="avatar avatar-online mr-5">
                                                             {{ grp.name|make_list|first }}
                                                         </div>
                                                         
@@ -398,7 +403,7 @@
                                                     <div class="media">
                                                         
                                                         
-                                                        <div style="text-transform: uppercase;text-align: center;background:#0176ff;padding-top: 25px;color: #fff;font-size: 25px;" class="avatar mr-5">
+                                                        <div style="text-transform: uppercase;text-align: center;background:#0176ff;padding-top: 25px;color: #fff;font-size: 25px;" class="avatar avatar-online mr-5">
                                                             {{ fc.username|make_list|first }}
                                                         </div>
                                                         
@@ -445,19 +450,7 @@
                                 <!-- Title -->
 
                                 <!-- Search -->
-                                <form class="mb-6">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control form-control-lg" placeholder="Search for messages or users..." aria-label="Search for messages or users...">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-lg btn-ico btn-secondary btn-minimal" type="submit">
-                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 172 172"
-                                                    style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#cccccc"><path d="M64.5,14.33333c-27.6214,0 -50.16667,22.54527 -50.16667,50.16667c0,27.6214 22.54527,50.16667 50.16667,50.16667c12.52732,0 23.97256,-4.67249 32.7819,-12.31771l3.05143,3.05143v9.26628l43,43l14.33333,-14.33333l-43,-43h-9.26628l-3.05143,-3.05143c7.64521,-8.80934 12.31771,-20.25458 12.31771,-32.7819c0,-27.6214 -22.54527,-50.16667 -50.16667,-50.16667zM64.5,28.66667c19.87509,0 35.83333,15.95824 35.83333,35.83333c0,19.87509 -15.95825,35.83333 -35.83333,35.83333c-19.87509,0 -35.83333,-15.95825 -35.83333,-35.83333c0,-19.87509 15.95824,-35.83333 35.83333,-35.83333z"></path></g></g></svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
+                            
                                 <!-- Search -->
 
                                 <!-- Card -->
@@ -466,11 +459,11 @@
                                         <div class="text-center py-6">
                                             <!-- Photo -->
                                             <div class="avatar avatar-xl mb-5">
-                                                <img class="avatar-img" src="assets/images/avatars/12.jpg" alt="">
+                                                <img class="avatar-img" src="/static/avatar.svg" alt="">
                                             </div>
 
-                                            <h5>Matthew Wiggins</h5>
-                                            <p class="text-muted">Bootstrap is an open source toolkit for developing web with HTML.</p>
+                                            <h5>{{user.first_name}} {{user.last_name}}</h5>
+                                            <p class="text-muted">{{user.profile.bio}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -483,8 +476,8 @@
                                             <li class="list-group-item px-0 py-6">
                                                 <div class="media align-items-center">
                                                     <div class="media-body">
-                                                        <p class="small text-muted mb-0">Country</p>
-                                                        <p>Warsaw, Poland</p>
+                                                        <p class="small text-muted mb-0">Joined On</p>
+                                                        <p>{{user.date_joined}}</p>
                                                     </div>
                                                     <i class="text-muted icon-sm fe-globe"></i>
                                                 </div>
@@ -493,8 +486,8 @@
                                             <li class="list-group-item px-0 py-6">
                                                 <div class="media align-items-center">
                                                     <div class="media-body">
-                                                        <p class="small text-muted mb-0">Phone</p>
-                                                        <p>+39 02 87 21 43 19</p>
+                                                        <p class="small text-muted mb-0">Friends</p>
+                                                        <p>{{user.profile.friends.count}}</p>
                                                     </div>
                                                     <i class="text-muted icon-sm fe-mic"></i>
                                                 </div>
@@ -504,7 +497,7 @@
                                                 <div class="media align-items-center">
                                                     <div class="media-body">
                                                         <p class="small text-muted mb-0">Email</p>
-                                                        <p>anna@gmail.com</p>
+                                                        <p>{{user.email}}</p>
                                                     </div>
                                                     <i class="text-muted icon-sm fe-mail"></i>
                                                 </div>
@@ -513,8 +506,8 @@
                                             <li class="list-group-item px-0 py-6">
                                                 <div class="media align-items-center">
                                                     <div class="media-body">
-                                                        <p class="small text-muted mb-0">Time</p>
-                                                        <p>10:03 am</p>
+                                                        <p class="small text-muted mb-0">Last Login</p>
+                                                        <p>{{user.last_login}}</p>
                                                     </div>
                                                     <i class="text-muted icon-sm fe-clock"></i>
                                                 </div>
@@ -529,29 +522,29 @@
                                     <div class="card-body">
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item px-0 py-6">
-                                                <a href="#" class="media text-muted">
+                                                <a href="https://instagram.com/{{user.profile.insta}}" target="_blank" class="media text-muted">
                                                     <div class="media-body align-self-center">
-                                                        Twitter
+                                                        Instagram
                                                     </div>
-                                                    <i class="icon-sm fe-twitter"></i>
+                                                    <i class="icon-sm">@{{user.profile.insta}}</i>
                                                 </a>
                                             </li>
 
                                             <li class="list-group-item px-0 py-6">
-                                                <a href="#" class="media text-muted">
-                                                    <div class="media-body align-self-center">
-                                                    Facebook
-                                                    </div>
-                                                    <i class="icon-sm fe-facebook"></i>
-                                                </a>
-                                            </li>
-
-                                            <li class="list-group-item px-0 py-6">
-                                                <a href="#" class="media text-muted">
+                                                <a href="https://github.com/{{user.profile.github}}" target="_blank" class="media text-muted">
                                                     <div class="media-body align-self-center">
                                                         Github
                                                     </div>
-                                                    <i class="icon-sm fe-github"></i>
+                                                    <i class="icon-sm">@{{user.profile.github}}</i>
+                                                </a>
+                                            </li>
+
+                                            <li class="list-group-item px-0 py-6">
+                                                <a href="https://twitter.com/{{user.profile.twitter}}" target="_blank" class="media text-muted">
+                                                    <div class="media-body align-self-center">
+                                                        Twitter
+                                                    </div>
+                                                    <i class="icon-sm">@{{user.profile.twitter}}</i>
                                                 </a>
                                             </li>
                                         </ul>
@@ -572,7 +565,7 @@
                                         <!-- Button -->
                                         <button type="button" class="btn btn-lg btn-block btn-basic d-flex align-items-center">
                                             Logout
-                                            <span class="fe-log-out ml-auto"></span>
+                                            <span class="ml-auto">&#8594;</span>
                                         </button>
                                     </div>
                                 </div>
@@ -731,7 +724,7 @@
                                         <div class="input-group">
 
                                             <!-- Textarea -->
-                                            <textarea id="chat-id-1-input" class="form-control bg-transparent border-0" placeholder="Type your message..." rows="1" data-emoji-input="" data-autosize="true" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 46px;"></textarea>
+                                            <textarea style="scrollbar-width:none;resize:none" id="chat-id-1-input" class="form-control bg-transparent border-0" placeholder="Type your message..." rows="1" data-emoji-input="" data-autosize="true" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 46px;"></textarea>
 
 
                                         </div>
@@ -1991,6 +1984,45 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="add-friends" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <div class="media flex-fill">
+                        <div class="icon-shape rounded-lg bg-primary text-white mr-5">
+                            <i class="fe-users"></i>
+                        </div>
+                        <div class="media-body align-self-center">
+                            <h5 class="modal-title">Add friends</h5>
+                            <p class="small">Add colleagues, clients and friends.</p>
+                        </div>
+                    </div>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="invite-email" class="small">Username</label>
+                            <input type="text" class="form-control form-control-lg" id="invite-email">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-lg btn-block btn-primary d-flex align-items-center">
+                        Add friend
+                        <i class="ml-auto">+</i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
     {% if messages %}
           {% for message in messages %}
           <nav class="navbar navbar-preview fixed-top">
@@ -2089,7 +2121,7 @@
                                         <div>${data['content']}</div>
 
                                         <div class="mt-1">
-                                            <small class="opacity-65">${author} - ${data['timestamp']}</small>
+                                            <small class="opacity-65">${author} - ${data['timestamp'].slice(0,16)}</small>
                                         </div>
                                     </div>
                                     <!-- Message: content -->
@@ -2120,7 +2152,7 @@
                                                 <div>${data['content']}</div>
 
                                                 <div class="mt-1">
-                                                    <small class="opacity-65">${data['timestamp']}</small>
+                                                    <small class="opacity-65">${data['timestamp'].slice(0,16)}</small>
                                                 </div>
                                             </div>
                                             <!-- Message: content -->
@@ -2206,6 +2238,15 @@
                 }
             }
         })
+
+
+        $('#nav-bar-toggle').click(function(){
+        if($('.sidebar').css('display') == 'none'){
+          $('.sidebar').show('slow');
+        } else {
+          $('.sidebar').hide('slow');
+        }
+        });
 
     </script>
 </body></html>
