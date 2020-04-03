@@ -8,4 +8,5 @@ from . import consumers
 
 websocket_urlpatterns = [
     re_path(r'ws/chat/(?P<room_name>[0-9a-f-]+)/$', consumers.ChatConsumer),
+    re_path(r'ws/(?P<user_single>\w+)/$', consumers.SingleConsumer),
 ]
