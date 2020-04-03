@@ -331,85 +331,118 @@
                                 </form>
                                 <!-- Search -->
 
-                                <!-- Favourites -->
-                                <!-- Favourites -->
+                                <!-- Tabs -->
+                                <ul class="nav nav-tabs nav-justified mb-6" role="tablist">
+                                    <li class="nav-item">
+                                        <a href="#singles" class="nav-link active" data-toggle="tab" role="tab" aria-selected="true">Singles</a>
+                                    </li>
 
-                                <!-- Chats -->
-                                <nav class="nav d-block list-discussions-js mb-n6">
-                                    <div id="searchchat" class="group">
-                                        {% for grp in group %}
-                                        <!-- Chat link -->
-                                        <a class="text-reset nav-link p-0 mb-6" href="/chat/{{grp.group_url}}/">
-                                            <div class="card card-active-listener">
-                                                <div class="card-body">
+                                    <li class="nav-item">
+                                        <a href="#groups" class="nav-link" data-toggle="tab" role="tab" aria-selected="false">Groups</a>
+                                    </li>
+                                </ul>
+                                <!-- Tabs -->
 
-                                                    <div class="media">
-                                                        
-                                                        
-                                                        <div style="text-transform: uppercase;text-align: center;background:#0176ff;padding-top: 25px;color: #fff;font-size: 25px;" class="avatar avatar-online mr-5">
-                                                            {{ grp.name|make_list|first }}
-                                                        </div>
-                                                        
-                                                        <div class="media-body overflow-hidden">
-                                                            <div class="d-flex align-items-center mb-1">
-                                                                <h6 id="name_chat" class="text-truncate mb-0 mr-auto">{{grp.name}}</h6>
-                                                                <p class="small text-muted text-nowrap ml-4">10:42 am</p>
+                                <form method="post" class="mb-6">
+                                    {% csrf_token %}
+                                    <input type="hidden" value="create-group" name="post">
+                                <!-- Create chat -->
+                                <div class="tab-content" role="tablist">
+
+                                    <!-- Chat Singles -->
+                                    <div id="singles" class="tab-pane fade show active" role="tabpanel">
+                                        <div id="singles-details" class="nav d-block list-discussions-js mb-n6 fade show active" role="tabpanel">
+                                            <div id="searchchatsingles" class="group">
+                                                {% for grp in fchat %}
+                                                <!-- Chat link -->
+                                                {% for fc in grp.fuser.all %}
+                                                {% if user != fc %}
+                                                <a class="text-reset nav-link p-0 mb-6" href="/chat/{{grp.furl}}/">
+                                                    <div class="card card-active-listener">
+                                                        <div class="card-body">
+    
+                                                            <div class="media">
+                                                                
+                                                                
+                                                                <div style="text-transform: uppercase;text-align: center;background:#0176ff;padding-top: 25px;color: #fff;font-size: 25px;" class="avatar avatar-online mr-5">
+                                                                    {{ fc.username|make_list|first }}
+                                                                </div>
+                                                                
+                                                                <div class="media-body overflow-hidden">
+                                                                    <div class="d-flex align-items-center mb-1">
+                                                                        <h6 id="name_chat" class="text-truncate mb-0 mr-auto">{{fc.username}}</h6>
+                                                                        <p class="small text-muted text-nowrap ml-4">{{grp.time_single}}</p>
+                                                                    </div>
+                                                                    <div class="text-truncate">{{grp.last_msg_single}}</div>
+                                                                </div>
                                                             </div>
-                                                            <div class="text-truncate">Anna Bridges: Hey, Maher! How are you? The weather is great isn't it?</div>
+    
                                                         </div>
+    
+                                                        {% if grp.unread_single != 0 %}
+                                                        <div class="badge badge-circle badge-primary badge-border-light badge-top-right">
+                                                            <span>{{grp.unread_single}}</span>
+                                                        </div>
+                                                        {% endif %}
                                                     </div>
-
-                                                </div>
-
-                                                
-                                                <div class="badge badge-circle badge-primary badge-border-light badge-top-right">
-                                                    <span>3</span>
-                                                </div>
-                                                
+                                                </a>
+                                                <!-- Chat link -->
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% endfor %}
                                             </div>
-                                        </a>
-                                        <!-- Chat link -->
-                                        {% endfor %}
-                                        {% for grp in fchat %}
-                                        <!-- Chat link -->
-                                        {% for fc in grp.fuser.all %}
-                                        {% if user != fc %}
-                                        <a class="text-reset nav-link p-0 mb-6" href="/chat/{{grp.furl}}/">
-                                            <div class="card card-active-listener">
-                                                <div class="card-body">
-
-                                                    <div class="media">
-                                                        
-                                                        
-                                                        <div style="text-transform: uppercase;text-align: center;background:#0176ff;padding-top: 25px;color: #fff;font-size: 25px;" class="avatar avatar-online mr-5">
-                                                            {{ fc.username|make_list|first }}
-                                                        </div>
-                                                        
-                                                        <div class="media-body overflow-hidden">
-                                                            <div class="d-flex align-items-center mb-1">
-                                                                <h6 id="name_chat" class="text-truncate mb-0 mr-auto">{{fc.username}}</h6>
-                                                                <p class="small text-muted text-nowrap ml-4">10:42 am</p>
-                                                            </div>
-                                                            <div class="text-truncate">Anna Bridges: Hey, Maher! How are you? The weather is great isn't it?</div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                                
-                                                <div class="badge badge-circle badge-primary badge-border-light badge-top-right">
-                                                    <span>3</span>
-                                                </div>
-                                                
-                                            </div>
-                                        </a>
-                                        <!-- Chat link -->
-                                        {% endif %}
-                                        {% endfor %}
-                                        {% endfor %}
+                                        </div>
                                     </div>
-                                </nav>
-                                <!-- Chats -->
+                                    <!-- Chat Singles -->
+                                    
+                                    <!-- Chat Groups -->
+                                    <div id="groups" class="tab-pane fade" role="tabpanel">
+                                        <div id="singles-details" class="nav d-block list-discussions-js mb-n6 fade show active" role="tabpanel">
+                                            <div id="searchchatgroups" class="group">
+                                                {% for grp in group %}
+                                                <!-- Chat link -->
+                                                <a class="text-reset nav-link p-0 mb-6" href="/chat/{{grp.group_url}}/">
+                                                    <div class="card card-active-listener">
+                                                        <div class="card-body">
+    
+                                                            <div class="media">
+                                                                
+                                                                
+                                                                <div style="text-transform: uppercase;text-align: center;background:#0176ff;padding-top: 25px;color: #fff;font-size: 25px;" class="avatar avatar-online mr-5">
+                                                                    {{ grp.name|make_list|first }}
+                                                                </div>
+                                                                
+                                                                <div class="media-body overflow-hidden">
+                                                                    <div class="d-flex align-items-center mb-1">
+                                                                        <h6 id="name_chat" class="text-truncate mb-0 mr-auto">{{grp.name}}</h6>
+                                                                        <p class="small text-muted text-nowrap ml-4">{{grp.time_groups}}</p>
+                                                                    </div>
+                                                                    <div class="text-truncate">{{grp.last_msg_groups}}</div>
+                                                                </div>
+                                                            </div>
+    
+                                                        </div>
+    
+                                                        {% if grp.unread_groups != 0 %}
+                                                        <div class="badge badge-circle badge-primary badge-border-light badge-top-right">
+                                                            <span>{{grp.unread_groups}}</span>
+                                                        </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </a>
+                                                <!-- Chat link -->
+                                                {% endfor %}   
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Chat Groups -->
+
+                                </div>
+                                <!-- Create chat -->
+
+
+                                <!-- Favourites -->
+                                <!-- Favourites -->
 
                             </div>
                         </div>
@@ -690,9 +723,12 @@
     <script src="{% static 'template.js' %}"></script>
     <!-- Scripts -->
     <script>
+
+        $('.sidebar').css('transition','0.2s ease')
+
         $("#chatsearch").keyup(function(){
             var filter = $("#chatsearch").val().toUpperCase();
-            var ul = document.getElementById("searchchat");
+            var ul = document.getElementById("searchchatsingles");
             var li = ul.getElementsByTagName("a");
             for (i = 0; i < li.length; i++) {
                 txtValue = $(li[i]).find('#name_chat').text();
@@ -702,15 +738,37 @@
                     li[i].style.display = "none";
                 }
             }
+
+            var filtergroup = $("#chatsearch").val().toUpperCase();
+            var ul = document.getElementById("searchchatgroups");
+            var li = ul.getElementsByTagName("a");
+            for (i = 0; i < li.length; i++) {
+                txtValue = $(li[i]).find('#name_chat').text();
+                if (txtValue.toUpperCase().indexOf(filtergroup) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
         })
 
+        var sidebar_width = $('.sidebar').width()
+
         $('#nav-bar-toggle').click(function(){
-        if($('.sidebar').css('display') == 'none'){
-          $('.sidebar').show('slow');
+        if($('.sidebar').width() == 0){
+          $('.sidebar').width(sidebar_width);
         } else {
-          $('.sidebar').hide('slow');
+          $('.sidebar').width(0);
         }
         });
+
+        // $('#nav-bar-toggle').click(function(){
+        // if($('.sidebar').css('display') == 'none'){
+        //   $('.sidebar').show();
+        // } else {
+        //   $('.sidebar').hide();
+        // }
+        // });
 
     </script>
 
