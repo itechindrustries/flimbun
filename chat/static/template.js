@@ -90,9 +90,9 @@
             //     });
             // });
         } else {
-            [].forEach.call(document.querySelectorAll('[data-emoji-form]'), function (form) {
-                form.querySelector('[data-emoji-btn]').style.display = 'none';
-            });
+            // [].forEach.call(document.querySelectorAll('[data-emoji-form]'), function (form) {
+            //     form.querySelector('[data-emoji-btn]').style.display = 'none';
+            // });
         }
 
         //
