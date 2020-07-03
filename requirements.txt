@@ -68,12 +68,7 @@ pyasn1-modules==0.2.8
 pycairo==1.16.2
 pycparser==2.20
 pycrypto==2.6.1
-pycups==1.9.73
-Pygments==2.6.1
-pygobject==3.26.1
-PyHamcrest==2.0.2
 pylint==2.4.4
-pymacaroons==0.13.0
 pytz==2020.1
 pyxdg==0.25
 PyYAML==3.12
