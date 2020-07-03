@@ -48,13 +48,7 @@ isort==4.3.21
 jedi==0.17.0
 Jinja2==2.11.2
 json5==0.9.5
-launchpadlib==1.10.6
-lazr.restfulclient==0.13.5
-lazr.uri==1.0.3
-lazy-object-proxy==1.4.3
-louis==3.5.0
 msgpack==0.6.2
-netifaces==0.10.4
 oauth==1.0.1
 oauthlib==2.1.0
 olefile==0.45.1
