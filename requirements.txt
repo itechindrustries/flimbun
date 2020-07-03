@@ -15,15 +15,12 @@ cffi==1.14.0
 channels==2.4.0
 channels-redis==2.4.2
 chardet==3.0.4
-command-not-found==0.3
 constantly==15.1.0
 cryptography==2.9.2
 cupshelpers==1.0
 daphne==2.2.2
 decorator==4.4.2
 defer==1.0.6
-defusedxml==0.6.0
-distro-info===0.18ubuntu0.18.04.1
 Django==3.0.8
 django-admin==2.0.1
 django-allauth==0.38.0
