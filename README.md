@@ -6,6 +6,4 @@ A Chat App
 
 ![Screenshot from 2020-07-03 12-06-19](https://user-images.githubusercontent.com/55910733/86439506-5030be00-bd26-11ea-8235-4da880f56933.png)
 
-![Screenshot from 2020-07-03 12-08-30](https://user-images.githubusercontent.com/55910733/86439508-5161eb00-bd26-11ea-8219-3f81abb83d85.png)
-
-![Screenshot from 2020-07-03 12-09-06](https://user-images.githubusercontent.com/55910733/86439509-51fa8180-bd26-11ea-9591-41b055702bbe.png)
+![Screenshot from 2020-07-03 12-08-30](https://user-images.githubusercontent.com/55910733/86439508-5161eb00-bd26-11ea-8219-3f81abb83d85.png)![Screenshot from 2020-07-03 12-09-06](https://user-images.githubusercontent.com/55910733/86439509-51fa8180-bd26-11ea-9591-41b055702bbe.png)
