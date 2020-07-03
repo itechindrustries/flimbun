@@ -1,7 +1,4 @@
 # Flimbun : A Chat App
-==================================
-
-|build-status| |coverage| |python-support| |license|
 
 ![Screenshot from 2020-07-03 12-05-27](https://user-images.githubusercontent.com/55910733/86439411-2b3c4b00-bd26-11ea-8e76-8ce0662fc33a.png)
 
