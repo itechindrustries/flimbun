@@ -52,6 +52,12 @@ hey you got it! HAPPY SURFING :)
 - [itechindrustries](https://github.com/ItechIndrustries)
 - [a.techguy.r](https://github.com/atechguyr)
 
+## License
+MIT - [See LICENSE](./LICENSE)
+
+## Change Log
+* Version 0.1 - Initial commit
+
 ## Contribution
 
 If you're new to contributing to Open Source on Github, [this guide](https://guides.github.com/activities/contributing-to-open-source/) can help you get started. We're a warm and welcoming community of open source contributors. Please join. All types of contribution are welcome.
