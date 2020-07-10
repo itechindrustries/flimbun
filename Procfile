@@ -1,1 +1,1 @@
-web: gunicorn flimbun.asgi
+web: daphne flimbun.asgi:application
