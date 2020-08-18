@@ -15,26 +15,27 @@ pip install -r requirements.txt
 ```
 #### `For Linux/Mac:`
 
-```javascript
+```lang-python
 pip3 install -r requirements.txt
 ```
 
 2) Run your redis on port: 6379 (you may use docker as below)
 
 ```javascript
+sudo apt install docker.io
 sudo docker run -p 6379:6379 -d redis:5
 ```
 3) Run the devlopment server:
 
 #### `For Windows:`
 
-```javascript
+```lang-python
 python manage.py runserver
 ```
 
 #### `For Linux/Mac:
 
-```javascript
+```lang-python
 python3 manage.py runserver
 ```
 

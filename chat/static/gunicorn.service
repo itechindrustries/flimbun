@@ -1,0 +1,13 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=itech
+Group=www-data
+WorkingDirectory=/home/itech/flimbun
+ExecStart=/home/itech/flimbun/env/bin/python3 /home/itech/flimbun/env/bin/daphne -u /home/itech/flimbun/flimbun.sock --proxy-headers flimbun.asgi:application
+
+[Install]
+WantedBy=multi-user.target
