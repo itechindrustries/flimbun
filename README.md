@@ -39,7 +39,7 @@ python manage.py runserver
 python3 manage.py runserver
 ```
 
-4) Go to the url shown in terminal say, 127.0.0.1:8000 and use following username and password:
+4) Go to the url shown in terminal say, 127.0.0.1:8000/admin and use following username and password:
 
 ```javascript
 username: gitest
